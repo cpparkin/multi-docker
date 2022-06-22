@@ -8,12 +8,12 @@ before_install:
 script:
   - docker run -e CI=true cpparkin123/react-test npm test
 after_success:
-  - docker build -t cpparkin123/multi-client ./client
+  - docker build -t chrisp123/multi-client ./client
   - docker build -t cpparkin123/multi-nginx ./nginx
   - docker build -t cpparkin123/multi-server ./server
   - docker build -t cpparkin123/multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  - docker push cpparkin123/multi-client
+  - docker push chrisp123/multi-client
   - docker push cpparkin123/multi-nginx
   - docker push cpparkin123/multi-server
   - docker push cpparkin123/multi-worker
