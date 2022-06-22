@@ -3,7 +3,7 @@ FROM node:16-alpine as builder
 USER node
 
 
-RUN mkdir -p /home/cpparkin
+RUN mkdir -p /home/node/cpparkin
 RUN mkdir -p /home/node/app
 
 WORKDIR '/home/node/app'
