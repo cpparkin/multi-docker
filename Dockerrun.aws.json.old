@@ -1,0 +1,37 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions":[
+		{
+			"name": "client",
+			"image": "chrisp123/multi-client",
+			"hostname": "client",
+			"essential": false
+		},
+		{
+                        "name": "server",
+                        "image": "chrisp123/multi-server",
+                        "hostname": "api",
+                        "essential": false
+                },
+		{
+                        "name": "worker",
+                        "image": "chrisp123/multi-worker",
+                        "hostname": "worker",
+                        "essential": false
+                },
+		{
+                        "name": "nginx",
+                        "image": "chrisp123/multi-nginx",
+                        "hostname": "nginx",
+                        "essential": true,
+			"portMappings":[
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			],
+			"links": ["client", "server"]
+                }
+	]
+	
+}
